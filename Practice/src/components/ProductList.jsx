@@ -1,6 +1,7 @@
 import React from 'react'
 
-export const ProductList = React.memo(({products}) => {
+export const ProductList = React.memo(({products,onDelete,onEdit}) => {
+    console.log(products)
   return (
     <div className=' grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-5' >
         {
@@ -10,7 +11,15 @@ export const ProductList = React.memo(({products}) => {
                 key={item.id}>
                     <h1 className='text-2xl font-medium'>{item.name}</h1>
                     <h1>{item.price}</h1>
-                    <button className='border px-4 py-1 rounded mt-3'>delete </button>
+                    <div className='flex gap-3'>
+                        <button 
+                        onClick={()=>onDelete(item.id)}
+                        className='border px-4 py-1 rounded mt-3'>delete </button>
+                        <button 
+                        onClick={()=>onEdit(item)}
+                        className='border px-4 py-1 rounded mt-3'>edit </button>
+                    </div>
+                    
                 </div>
             ))
         }
