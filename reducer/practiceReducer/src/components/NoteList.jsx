@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNotes } from '../Hooks/useNotes'
 import {useNavigate} from "react-router-dom"
 
-function NoteList({onEdit}) {
+const NoteList=React.memo(({onEdit})=>{
     const [page,setPage] = useState(1);
     const navigate = useNavigate();
     const {data:notes , isLoading , error } = useNotes();
@@ -52,5 +52,5 @@ function NoteList({onEdit}) {
     </>
   )
 }
-
+);
 export default NoteList

@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react'
+import { useCallback, useReducer, useState } from 'react'
 import NewForm from '../components/NewForm'
 import NoteList from '../components/NoteList'
 
@@ -38,10 +38,10 @@ function Home() {
    const [editData , setEditData] = useState(null);
    const [state, dispatch] = useReducer(reducer, { count: 0 })
 
-   const handleEdit = (data)=>{
+   const handleEdit =useCallback((data)=>{
     console.log(data);
     setEditData(data);
-   }
+   },[editData]) 
   return (
     <div>
       <div className="m-3 px-10 py-10 border  rounded-xl border-gray-200 h-fit">
