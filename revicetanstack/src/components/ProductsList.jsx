@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../Services/productApi';
 import { useNavigate } from 'react-router-dom';
+import Stopwatch from './Stopwatch';
 
 const ProductsList = () => {
 
@@ -141,6 +142,7 @@ const ProductsList = () => {
                 ))}
 
             </div>
+            <Stopwatch />
         </div>
     );
 };
