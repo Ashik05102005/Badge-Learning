@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import { editProducts } from '../Services/productApi';
 
 const initialState = {
@@ -8,11 +8,27 @@ const initialState = {
     rating: '',
     stock: '',
     category: ''
+};
+
+const reducer = (state,action)=>{
+    if(action.type==="addData"){
+        return {...state , [action.name] : action.payload}
+    }
+    
+    else{
+        return state
+    }
 }
+
+// const initialReducer = 
 
 function Form({ product, showForm, setShowForm }) {
 
     const [formData, setFormData] = useState(initialState);
+
+    const [state,dispatch ] = useReducer(reducer,{name: '' , age : ''});
+
+
 
     const inputRef = useRef();
 
@@ -37,6 +53,12 @@ function Form({ product, showForm, setShowForm }) {
                     })
                 }
             })
+
+    }
+
+    const handleReducer = (e)=>{
+        e.preventDefault();
+        console.log(state)
 
     }
 
@@ -101,6 +123,26 @@ function Form({ product, showForm, setShowForm }) {
                 >Edit</button>
 
             </form>
+            <div>
+                <form 
+                onSubmit={handleReducer}
+                className='border mx-3 p-2 border-gray-300 rounded'
+                >
+                    <input 
+                    className='border p-2 rounded-md border-gray-300 w-full '
+                    type='text'
+                    placeholder='name'
+                    onChange={(e)=>dispatch({type: "addData" , name: "name" , payload : e.target.value })}
+                    ></input>
+                    <input
+                    className='border p-2 rounded-md border-gray-300 w-full mt-2 '
+                    type='text'
+                    placeholder='age'
+                    onChange={(e)=>dispatch({type: "addData" , name: "age" , payload : e.target.value })}
+                    ></input>
+                    <button className='border p-2 rounded bg-amber-900 text-white mt-2 w-full'>add</button>
+                </form>
+            </div>
         </div>
     )
 }

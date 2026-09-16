@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 function Stopwatch() {
     const [running, setRunning] = useState(false);
@@ -12,11 +12,17 @@ function Stopwatch() {
         }
         return () => clearInterval(interval)
     }, [running]);
+    
+        const hour = Math.floor(time / 3600);
+        const min = Math.floor((time % 3600) / 60);
+        const sec = time % 60;
     return (
         <div className=" mt-4 p-4  flex justify-center">
             <div className="border p-3 rounded border-gray-300">
                 <div className="text-7xl flex justify-center">
-                    {time} s
+                    {
+                        `${hour}:${min}:${sec}`
+                    } 
                 </div>
                 <div className="mt-4 flex gap-4">
                     <button 

@@ -21,10 +21,10 @@
     {
       "id": "4",
       "name": "Backpack",
-      "category": "Accessories",
-      "price": 1299,
+      "category": "Fashion",
+      "price": "129900",
       "rating": 4.1,
-      "stock": 40,
+      "stock": "400",
       "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62"
     },
     {
@@ -44,15 +44,6 @@
       "rating": 4.3,
       "stock": 50,
       "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-    },
-    {
-      "id": "7",
-      "name": "Laptop Stand",
-      "category": "Accessories",
-      "price": 999,
-      "rating": 4.7,
-      "stock": 20,
-      "image": "https://images.unsplash.com/photo-1616627982281-8c5e7b5c5a1c"
     },
     {
       "id": "8",

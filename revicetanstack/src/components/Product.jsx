@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import {  useParams , useNavigate} from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchById } from '../Services/productApi';
 import Form from './Form';
 
 function Product() {
   const { id } = useParams();
-  const [showForm,setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false)
   const navigate = useNavigate()
 
   const {
@@ -40,12 +40,11 @@ function Product() {
 
   return (
     <div className="min-h-screen bg-gray-100 px-6 py-10">
-      <div onClick={()=>navigate('/')}>
-        back
+      <div onClick={() => navigate('/')}>
+        Home                !
       </div>
-
       <Form showForm={showForm} setShowForm={setShowForm} product={product} />
-      
+
       <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
 
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -97,7 +96,7 @@ function Product() {
               Add to Cart
             </button>
             <button
-              onClick={()=>setShowForm(true)}
+              onClick={() => setShowForm(true)}
               className="w-full border border-blue-600 text-blue-600 py-3 rounded-xl mt-2
                          font-semibold 
                          transition duration-200"
